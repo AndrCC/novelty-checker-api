@@ -1,5 +1,7 @@
 import Fastify from "fastify";
 import { pool } from "./db/pool.js";
+import { corporaRoutes } from "./routes/corpora.js";
+
 
 export function buildApp() {
   const app = Fastify({ logger: true });
@@ -11,5 +13,6 @@ export function buildApp() {
   return r.rows[0];
 });
 
+  app.register(corporaRoutes);
   return app;
 }
