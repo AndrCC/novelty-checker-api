@@ -2,6 +2,7 @@ import Fastify from "fastify";
 import { pool } from "./db/pool.js";
 import { corporaRoutes } from "./routes/corpora.js";
 import { indexRoutes } from "./routes/index.js";
+import { checkRoutes } from "./routes/check.js";
 
 
 export function buildApp() {
@@ -16,6 +17,7 @@ export function buildApp() {
 
   app.register(corporaRoutes);
   app.register(indexRoutes);
+  app.register(checkRoutes);
 
   return app;
 }
